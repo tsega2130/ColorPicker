@@ -1,0 +1,40 @@
+<div id="messages-page">
+  {{#if errors}}
+    <div class="notice error">
+      <h2 class="notice-header">Error</h2>
+      <ul class="error-list">
+        {{#each errors}}
+          {{#each this}}
+            <li>{{@../key}} {{message}}</li>
+          {{/each}}
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+
+  <form id="message-form" method="POST" action="/messages">
+    <textarea id="message-body-input" name="body" placeholder="Enter a message here."></textarea>
+    <button type="submit">Post Message</button>
+  </form>
+
+  <div id="messages">
+    <h2>Messages</h2>
+
+    {{#unless messages}}
+      <p>Sorry, no messages. :(</p>
+    {{else}}
+      <ol class="message-list">
+        {{#each messages}}
+          <li>
+            <div class="message-body">
+              {{body}}
+            </div>
+            <div class="message-timestamp">
+              Posted on {{created_at}}
+            </div>
+          </li>
+        {{/each}}
+      </ol>
+    {{/unless}}
+  </div>
+</div>

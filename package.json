@@ -1,0 +1,50 @@
+{
+  "name": "project-js-social-wall",
+  "description": "An introductory, single-table web application using JavaScript + Express",
+  "author": "Jesse Farmer <jesse@20bits.com>",
+  "repository": "github:jfarmer/project-js-social-wall",
+  "private": false,
+  "version": "1.0.0",
+  "license": "CC-BY-NC-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/jfarmer/project-js-social-wall/issues"
+  },
+  "homepage": "https://github.com/jfarmer/project-js-social-wall#readme",
+  "scripts": {
+    "db:create": "createdb social_wall_development",
+    "db:drop": "dropdb social_wall_development",
+    "db:migrate": "npx knex migrate:latest",
+    "dev": "nodemon",
+    "start": "npx cross-env DEBUG=\"${DEBUG:=social-wall:*,knex:query}\" node ./bin/server",
+    "lint": "npx eslint ."
+  },
+  "dependencies": {
+    "@awaitjs/express": "^0.6.3",
+    "cookie-parser": "^1.4.5",
+    "debug": "^4.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "express-promise-router": "^4.0.1",
+    "handlebars": "^4.7.6",
+    "hbs": "^4.1.1",
+    "http-errors": "^1.8.0",
+    "knex": "^0.21.8",
+    "morgan": "^1.10.0",
+    "pg": "^8.4.2",
+    "strftime": "^0.10.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^7.12.1",
+    "eslint-config-standard": "^15.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.2",
+    "jsdoc": "^3.6.6",
+    "nodemon": "^2.0.6"
+  },
+  "engines": {
+    "node": "14.12.0"
+  }
+}
