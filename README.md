@@ -19,6 +19,7 @@ This is a small web application built for beginners that highlights essential we
     - [Default To `postgres` User](#default-to-postgres-user)
 - [Templating With Handlebars](#templating-with-handlebars)
 - [Interacting With The Database](#interacting-with-the-database)
+- [GET vs POST](#get-vs-post)
 - [Iterations](#iterations)
 - [Deploying To Heroku](#deploying-to-heroku)
 
@@ -104,6 +105,20 @@ See `index.hbs` for the main page.
 
 We are using one [Knex.js][url-knexjs] to interact with the database.
 
+## GET vs POST
+
+Say we visit `http://localhost:3000/potato`. We might say we're making an HTTP request to `/potato`.
+
+One invisible fact is that HTTP requests come in multiple flavors. Every request has something called a "method" associated with it. The default method is called `GET`, but there's also a `POST` method.
+
+From the web server's perspective, `GET /potato` and `POST /potato` are different requests and you can respond to them independently.
+
+Historically, HTTP was about sharing documents. `GET` requests are meant to represent asking the server for a particular document. `POST` requests are meant to represent sending a new document from the client to the server.
+
+`POST` requests are typically used when inserting new data into a database, e.g., posting a new message to the social wall.
+
+In Express, anywhere you'd normally see `app.get` or `router.get` or the like, you could instead write `app.post` or `router.post` to listen for a `POST` request.
+
 ## Iterations
 
 ### [v0.1] Start The Core App <!-- omit in toc -->
@@ -142,6 +157,8 @@ See [Deploying To Heroku](#Deploying-To-Heroku) below for instructions on how to
 ### [v1.1] Your Choice <!-- omit in toc -->
 
 Come up with a list of features you're interested in implementing. Pick one to implement. Pick something small with the goal of better familiarizing yourself with the app.
+
+Do not spend more than ~10 minutes coming up with ideas and deciding on which one to attempt. Start with something simple enough. You'll have better ideas once you've worked on a simple feature a bit.
 
 ## Deploying To Heroku
 
